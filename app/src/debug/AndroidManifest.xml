@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <application>
+        <!-- Debug builds only: adb shell am broadcast -n com.nikkras.dosering/.debug.DemoSeedReceiver -->
+        <receiver
+            android:name=".debug.DemoSeedReceiver"
+            android:exported="true" />
+    </application>
+</manifest>

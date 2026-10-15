@@ -1,0 +1,98 @@
+<resources>
+    <string name="app_name">DoseRing</string>
+    <string name="widget_label">DoseRing</string>
+    <string name="widget_description">Tap a medicine to log a dose. The ring fills until you can take it again.</string>
+    <string name="widget_hint">Tap + to add your first medicine</string>
+    <string name="journal">Journal</string>
+
+    <string name="tab_medicines">Medicines</string>
+    <string name="tab_journal">Journal</string>
+    <string name="tab_stats">Statistics</string>
+
+    <string name="status_ready">Ready</string>
+    <string name="tile_ready_description">%1$s, ready. Tap to log a dose.</string>
+    <string name="tile_waiting_description">%1$s, next dose in %2$s. Tap to log a dose.</string>
+    <string name="cancel_intake">Cancel last dose</string>
+    <string name="cancel_intake_for">Cancel last %1$s dose</string>
+
+    <string name="add_medicine">Add medicine</string>
+    <string name="take">Take</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="no">No</string>
+    <string name="more_options">More options</string>
+    <string name="undo_last_dose">Undo last dose</string>
+    <string name="every_interval">every %1$s</string>
+    <string name="max_per_day">max %1$s / 24h</string>
+    <string name="next_dose_in">Next dose in %1$s</string>
+    <string name="status_ready_now">Ready to take</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+
+    <string name="toast_logged">Logged %1$s · %2$s</string>
+    <string name="toast_removed">Removed %1$s dose</string>
+
+    <string name="confirm_take_title">Take %1$s now?</string>
+    <string name="confirm_take_early">Your last dose was %1$s ago, at %2$s. The minimum time between doses is %3$s, so the next one is due in %4$s.</string>
+    <string name="confirm_take_max">This would make %1$s in the last 24 hours, above your limit of %2$s.</string>
+    <string name="less_than_a_minute">less than a minute</string>
+    <string name="log_anyway">Log anyway</string>
+    <string name="not_now">Not now</string>
+
+    <string name="cancel_title">Are you sure?</string>
+    <string name="cancel_text">This removes %1$s (%2$s) taken at %3$s from your journal and resets its timer.</string>
+    <string name="cancel_confirm">Yes, remove</string>
+
+    <string name="delete_intake_title">Delete this entry?</string>
+    <string name="delete_intake_text">%1$s (%2$s) taken at %3$s will be removed from your journal.</string>
+    <string name="delete_medication_title">Delete %1$s?</string>
+    <string name="delete_medication_text">It will be removed from the widget. Past doses stay in your journal.</string>
+
+    <string name="editor_title_add">New medicine</string>
+    <string name="editor_title_edit">Edit medicine</string>
+    <string name="field_name">Name</string>
+    <string name="field_name_hint">e.g. Ibuprofen</string>
+    <string name="section_interval">Time between doses</string>
+    <string name="field_hours">Hours</string>
+    <string name="field_minutes">Minutes</string>
+    <string name="section_dose">Dose per tap</string>
+    <string name="field_amount">Amount</string>
+    <string name="section_limit">Daily limit (optional)</string>
+    <string name="field_max">Max in 24 hours</string>
+    <string name="field_max_hint">You will be warned before going over it</string>
+    <string name="field_max_error">Must be at least one dose</string>
+    <string name="section_colour">Ring colour</string>
+
+    <string name="empty_medicines_title">No medicines yet</string>
+    <string name="empty_medicines_text">Add a medicine here or tap + on the widget.</string>
+    <string name="empty_journal_title">Nothing logged yet</string>
+    <string name="empty_journal_text">Tap a medicine on the widget to log a dose. It will show up here.</string>
+    <string name="empty_stats_title">No statistics yet</string>
+    <string name="empty_stats_text">Daily totals appear once you have logged a few doses.</string>
+
+    <string name="widget_promo_title">Put DoseRing on your home screen</string>
+    <string name="widget_promo_text">Tap a medicine on the widget to log a dose. Its ring fills up until you can take it again.</string>
+    <string name="widget_promo_button">Add widget</string>
+    <string name="widget_promo_manual">Long-press your home screen, choose Widgets and pick DoseRing.</string>
+
+    <string name="last_n_days">%1$d days</string>
+    <string name="doses_per_day">Doses per day</string>
+    <string name="total_doses">doses</string>
+    <string name="avg_per_day">per day</string>
+    <string name="days_with_doses">active days</string>
+    <string name="last_24_hours">Last 24 hours</string>
+    <string name="per_day">Per day</string>
+
+    <string name="channel_ready_name">Ready to take</string>
+    <string name="channel_ready_description">When a medicine\'s ring completes and you can take it again</string>
+    <string name="notification_ready_title">%1$s is ready</string>
+    <string name="notification_ready_text">It\'s been %1$s since your last dose (%2$s at %3$s).</string>
+    <string name="action_take_now">Take now</string>
+
+    <plurals name="doses_count">
+        <item quantity="one">%d dose</item>
+        <item quantity="other">%d doses</item>
+    </plurals>
+</resources>
