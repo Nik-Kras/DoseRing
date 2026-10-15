@@ -16,3 +16,6 @@ keystore.properties
 
 # OS
 .DS_Store
+
+# /brag video work files
+brag-output*/

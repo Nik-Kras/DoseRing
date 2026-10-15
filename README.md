@@ -11,6 +11,12 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="MIT License"></a>
 </p>
 
+<p align="center">
+  <a href="docs/promo.mp4"><img src="docs/promo-preview.webp" alt="DoseRing in 22 seconds: tap a medicine to log a dose, get warned before an early dose, undo a mis-tap, and watch the ring fill until you can take it again" width="320"></a>
+  <br>
+  <sub>▶ <a href="docs/promo.mp4">Watch with sound</a> (22 s)</sub>
+</p>
+
 **DoseRing** is a home-screen widget for the medicines you take "every few hours": throat sprays, lozenges, cold remedies, painkillers. Tap a medicine when you take it and a ring starts filling around it. When the ring is full, you can take it again.
 
 It was built for a week with a bad cold: Difflam every 1½ hours, Strepsils every 2, Lemsip and ibuprofen every 4. It is hard to remember which one was when.
