@@ -5,6 +5,7 @@ import android.appwidget.AppWidgetManager
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.util.TypedValue
 import android.view.View
 import android.widget.RemoteViews
 import com.nikkras.dosering.R
@@ -20,8 +21,15 @@ import kotlin.math.roundToInt
 object WidgetUpdater {
 
     private const val PLUS_ITEM_ID = Long.MAX_VALUE
-    private const val RING_DP = 54f
     private const val PLUS_COLOR = 0xFF8E95A3.toInt()
+
+    // Must match widget_root.xml: three columns, 16dp of horizontal padding.
+    private const val COLUMNS = 3
+    private const val GRID_PADDING_DP = 16
+    // Room around a ring for the cancel badge and spacing between columns.
+    private const val TILE_CHROME_DP = 30
+    private const val RING_MIN_DP = 44
+    private const val RING_MAX_DP = 76
 
     fun widgetIds(context: Context): IntArray =
         AppWidgetManager.getInstance(context)
@@ -67,19 +75,35 @@ object WidgetUpdater {
         )
         views.setViewVisibility(R.id.hint, if (meds.isEmpty()) View.VISIBLE else View.GONE)
 
-        val ringPx = (RING_DP * context.resources.displayMetrics.density).roundToInt()
+        val ringDp = ringSizeDp(AppWidgetManager.getInstance(context), widgetId)
+        val ringPx = (ringDp * context.resources.displayMetrics.density).roundToInt()
         val items = RemoteViews.RemoteCollectionItems.Builder()
             .setHasStableIds(true)
             .setViewTypeCount(1)
-        meds.forEach { med -> items.addItem(med.id, tile(context, med, latest[med.id], now, ringPx)) }
-        items.addItem(PLUS_ITEM_ID, plusTile(context, ringPx))
+        meds.forEach { med -> items.addItem(med.id, tile(context, med, latest[med.id], now, ringDp, ringPx)) }
+        items.addItem(PLUS_ITEM_ID, plusTile(context, ringDp, ringPx))
         views.setRemoteAdapter(R.id.grid, items.build())
         return views
     }
 
-    private fun tile(context: Context, med: Medication, last: Intake?, now: Long, ringPx: Int): RemoteViews {
+    /** Rings grow with the widget: a third of its width, minus room for the badge. */
+    private fun ringSizeDp(manager: AppWidgetManager, widgetId: Int): Int {
+        // On phones the portrait width is reported as the minimum width.
+        val widthDp = manager.getAppWidgetOptions(widgetId)
+            .getInt(AppWidgetManager.OPTION_APPWIDGET_MIN_WIDTH)
+            .takeIf { it > 0 } ?: 300
+        return ((widthDp - GRID_PADDING_DP) / COLUMNS - TILE_CHROME_DP).coerceIn(RING_MIN_DP, RING_MAX_DP)
+    }
+
+    private fun RemoteViews.sizeRing(ringDp: Int) {
+        setViewLayoutWidth(R.id.ring, ringDp.toFloat(), TypedValue.COMPLEX_UNIT_DIP)
+        setViewLayoutHeight(R.id.ring, ringDp.toFloat(), TypedValue.COMPLEX_UNIT_DIP)
+    }
+
+    private fun tile(context: Context, med: Medication, last: Intake?, now: Long, ringDp: Int, ringPx: Int): RemoteViews {
         val status = DoseLogic.status(med, last, now)
         return RemoteViews(context.packageName, R.layout.widget_tile).apply {
+            sizeRing(ringDp)
             setImageViewBitmap(
                 R.id.ring,
                 RingRenderer.ring(ringPx, med.color, status.progress, DoseLogic.initials(med.name), status.isReady),
@@ -103,8 +127,9 @@ object WidgetUpdater {
         }
     }
 
-    private fun plusTile(context: Context, ringPx: Int): RemoteViews =
+    private fun plusTile(context: Context, ringDp: Int, ringPx: Int): RemoteViews =
         RemoteViews(context.packageName, R.layout.widget_tile).apply {
+            sizeRing(ringDp)
             setImageViewBitmap(R.id.ring, RingRenderer.plus(ringPx, PLUS_COLOR))
             setTextViewText(R.id.name, "")
             setTextViewText(R.id.status, "")

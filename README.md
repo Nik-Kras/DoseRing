@@ -16,9 +16,9 @@
 It was built for a week with a bad cold: Difflam every 1½ hours, Strepsils every 2, Lemsip and ibuprofen every 4. It is hard to remember which one was when.
 
 <p align="center">
-  <img src="docs/screenshots/widget-closeup.png" alt="DoseRing widget" width="420">
+  <img src="docs/screenshots/widget-closeup.png" alt="DoseRing widget" width="360">
   &nbsp;
-  <img src="docs/screenshots/widget-closeup-light.png" alt="DoseRing widget in light mode" width="420">
+  <img src="docs/screenshots/widget-closeup-light.png" alt="DoseRing widget in light mode" width="360">
 </p>
 
 ## Install
@@ -43,7 +43,7 @@ Requires Android 12 or newer. Updates install over the existing app and keep you
 - **Nameless "+" tile.** Tap it to add a medicine: name, time between doses, dose per tap (mg, ml, sprays, tablets, lozenges…), an optional daily limit and a ring colour.
 - **Journal.** Every dose, grouped by day. Entries can be deleted.
 - **Statistics.** Doses per day over the last 7 or 30 days, per-medicine totals for each day, and a 24-hour view against your limits.
-- **Resizable widget.** Tiles reflow to fit any size. Follows light and dark mode.
+- **Big, readable tiles.** Three medicines per row, with rings that grow with the widget's width. Resize it taller for more rows. Follows light and dark mode.
 - **Private by design.** No account, no ads, no analytics, and no internet permission at all. Everything stays on the phone.
 
 ## Screenshots

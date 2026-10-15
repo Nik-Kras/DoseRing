@@ -52,12 +52,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:columnWidth="78dp"
         android:gravity="center"
         android:horizontalSpacing="0dp"
         android:listSelector="@android:color/transparent"
-        android:numColumns="auto_fit"
+        android:numColumns="3"
         android:scrollbars="none"
-        android:stretchMode="spacingWidthUniform"
-        android:verticalSpacing="2dp" />
+        android:stretchMode="columnWidth"
+        android:verticalSpacing="4dp" />
 </LinearLayout>
